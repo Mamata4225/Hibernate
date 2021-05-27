@@ -12,4 +12,6 @@ public interface PizzaHutDAO {
 
 	public void deletePizzaHut();
 
+	public void loadAllPizzaRecords();	
+
 }

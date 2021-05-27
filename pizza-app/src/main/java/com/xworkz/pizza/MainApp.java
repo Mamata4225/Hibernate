@@ -24,8 +24,11 @@ public class MainApp {
 //		System.out.println("Program end");
 //	}
 		
-         daoImpl.updatePizzaHut();
+        // daoImpl.updatePizzaHut();
        // daoImpl.deletePizzaHut();
+	daoImpl.loadAllPizzaRecords();
+	
+	
 	}
 
 }

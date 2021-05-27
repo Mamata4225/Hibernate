@@ -1,9 +1,12 @@
 package com.xworkz.pizza.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.xworkz.pizza.dto.PizzaHutDTO;
 import com.xworkz.singlefactory.SingleFactory;
@@ -82,13 +85,7 @@ public class PizzaHutDAOImpl implements PizzaHutDAO {
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
-		} finally {
-			if (session != null) {
-				session.close();
-				System.out.println("Session connection closed");
-			} else {
-				System.out.println("Session connection not closed");
-			}
+	
 		}
 	}
 
@@ -120,5 +117,40 @@ public class PizzaHutDAOImpl implements PizzaHutDAO {
 			}
 
 		}
+	}
+
+	public void loadAllPizzaRecords() {
+		System.out.println("invoked loadAllPizzaRecord()");
+   SessionFactory sessionFactory=null;
+    Session session=null;
+    
+    try {
+		sessionFactory = SingleFactory.getSessionFactory();
+		session=sessionFactory.openSession();
+//		String hql="select pizza.location from PizzaHutDTO AS pizza where pizzaID=3"; //location
+//		String hql="select pizza.price from PizzaHutDTO AS pizza where pizzaID=3"; //price
+		String hql="select pizza.location, pizza.name from PizzaHutDTO AS pizza where pizzaID=7";
+
+		Query query = session.createQuery(hql);
+        List list=query.list();
+//        List <PizzaHutDTO>list=query.list(); // if we have more than one data 
+
+//        for(PizzaHutDTO pizzaHutDTO:list) {
+//        	System.out.println(pizzaHutDTO);
+//        }
+        System.out.println(list);
+    
+    } catch (Exception e) {
+	   e.printStackTrace();
+    }
+    
+    finally {
+    	if (session != null) {
+			session.close();
+			System.out.println("Session connection closed");
+		} else {
+			System.out.println("Session connection not closed");
+		}
+	}
 	}
 }
