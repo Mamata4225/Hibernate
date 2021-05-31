@@ -20,15 +20,24 @@ public class MainApp {
 //		} else {
 //			System.out.println("Please enter valid data");
 //		}
-//		daoImpl.getPizzaHut();
 //		System.out.println("Program end");
 //	}
-		
+
+		// daoImpl.getPizzaHut();
         // daoImpl.updatePizzaHut();
-       // daoImpl.deletePizzaHut();
-	daoImpl.loadAllPizzaRecords();
-	
-	
+		// daoImpl.deletePizzaHut();
+		// daoImpl.loadAllPizzaRecords();
+         daoImpl.getPizzaPriceByName("Double chees");
+        // daoImpl.loadFirstResultAndMaxResult();
+	    // daoImpl.getTotalPriceOfAllPizza();
+	    // daoImpl.getMaxPriceOfPizza();
+	    // daoImpl.getMinPriceOfPizza();
+        // daoImpl.getAvgPriceOfPizza();
+	}
+
+	private static String String() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -13,5 +13,16 @@ public interface PizzaHutDAO {
 	public void deletePizzaHut();
 
 	public void loadAllPizzaRecords();	
+	
+	public void getPizzaPriceByName(String pizzaName);
+	
+	public void loadFirstResultAndMaxResult();
+	
+    public void getTotalPriceOfAllPizza();
+	
+    public void getMaxPriceOfPizza();
 
+    public void getMinPriceOfPizza();
+ 
+    public void getAvgPriceOfPizza();
 }

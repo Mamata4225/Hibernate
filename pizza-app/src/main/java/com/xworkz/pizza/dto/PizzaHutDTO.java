@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -14,6 +16,12 @@ import lombok.Setter;
 @Getter
 @Entity
 @Table(name="pizza_table")
+@NamedQueries({@NamedQuery(name="getAllRecords", query="from PizzaHutDTO"),
+@NamedQuery(name="getPriceByName", query = "select p.price from PizzaHutDTO AS p where p.name=:pizzaname"),
+@NamedQuery(name="loadFirstResultAndMaxResult", query="from PizzaHutDTO"),
+@NamedQuery(name="sumOfAllPizza", query="select sum(price) from PizzaHutDTO"),
+@NamedQuery(name="getMaxPriceOfPizza", query="select max(price) from PizzaHutDTO")})
+
 public class PizzaHutDTO implements java.io.Serializable{
 
 	@Column(name="PIZZA_ID")
