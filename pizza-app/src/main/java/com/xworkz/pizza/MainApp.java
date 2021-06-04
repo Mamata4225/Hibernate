@@ -35,9 +35,4 @@ public class MainApp {
         // daoImpl.getAvgPriceOfPizza();
 	}
 
-	private static String String() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
